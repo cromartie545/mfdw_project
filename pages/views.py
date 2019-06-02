@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.mail   import send_mail, get_connection
-
 from . models import Page
 from .forms import ContactForm
 
@@ -39,4 +38,3 @@ def contact(request):
             submitted = True
 
     return render(request, 'pages/contact.html', {'form': form, 'page_list': Page.objects.all(), 'submitted': submitted})
-

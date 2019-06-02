@@ -15,6 +15,13 @@
     <div id ="wrapper">
         <header id='header'>
          <div id ='logo'><img src="{% static 'pages/logo.jpg' %}"  alt=""/></div>
+         <span style='float: right;'>
+           {% if user.is_authenticated %}
+             hello, {{ user.username }}.<a href="{% url 'logout' %}?next=/">Log Out.</a>
+           {% else %}
+             <a href="{% url 'login' %}?next/">Log in.</a>
+           {% endif %}
+         </span>
          <div id ='topbanner'><img src="{% static 'pages/top_banner.png' %}" width='800' height = '200' alt=''/></div>
         </header>
         <aside id='leftsidebar'>
@@ -33,6 +40,9 @@
                         </li>
                       {% endblock %}
                       <li><a href="/contact">Contact Us</a></li>
+                      <li><a href="/quote/">Get a Quote</a></li>
+                      <li><a href="/quote/show">Show Quotes</a></li>
+
                   </ul>
               </nav>
 
