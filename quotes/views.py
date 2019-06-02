@@ -25,8 +25,9 @@ class Register(CreateView):
         return HttpResponseRedirect(self.success_url)
 
 
-class QuoteView(DetailView):
-    model = Quote
+class QuoteView(LoginRequiredMixin,ListView):
+    Login_url=reverse_lazy('login')
+    #model = Quote
     context_object_name = 'quote'
 
     def get_content_data(self, **kwrags):
@@ -46,8 +47,6 @@ class QuoteList(LoginRequiredMixin, ListView):
         content['page_list'] = Page.objects.all()
         return context
 @login_required(login_url=reverse_lazy('login'))
-#@login_required(login_url=reverse_lazy('logout'))
-
 def quote_req(request):
     submitted = False
     if request.method == 'POST':

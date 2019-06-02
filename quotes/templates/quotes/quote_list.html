@@ -15,12 +15,12 @@
   </tr>
 
 
-  <ul>
+
 
     {% for quote in all_quotes %}
       <tr class = "quoterow {% cycle '' 'altrow' %}">
         <td><a href='show/{{ quote.id }}'>{{ quote.id }}</a></td>
-        
+
         <td>{{ quote.name }}</td>
         <td>{{ quote.company }}</td>
         <td>{{ quote.submitted|date:'m-d-y' }}</td>
@@ -29,7 +29,7 @@
       </tr>
     {% endfor %}
 
-  </ul>
+  
  </table>
 
 {% endblock content %}

@@ -17,9 +17,9 @@
          <div id ='logo'><img src="{% static 'pages/logo.jpg' %}"  alt=""/></div>
          <span style='float: right;'>
            {% if user.is_authenticated %}
-             hello, {{ user.username }}.<a href="{% url 'logout' %}?next=/">Log Out.</a>
+             Hello, {{ user.username }}.<a href="{% url 'logout' %}?next=/">Log Out.</a>
            {% else %}
-             <a href="{% url 'login' %}?next/">Log in.</a>
+             <p>Not Registered yet?<a href="{% url 'login' %}?next/">Log in.</a></p>
            {% endif %}
          </span>
          <div id ='topbanner'><img src="{% static 'pages/top_banner.png' %}" width='800' height = '200' alt=''/></div>
